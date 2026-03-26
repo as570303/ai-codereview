@@ -1,0 +1,29 @@
+# 敏感信息
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# 构建产物
+build/
+dist/
+*.egg-info/
+*.so
+*.c
+
+# 工具输出
+.codereview-baseline.json
+code-review-report*.md
+demo-review-report.md
+*.sarif
+
+# 虚拟环境
+.venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp

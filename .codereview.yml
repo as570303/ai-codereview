@@ -1,0 +1,38 @@
+model: claude-sonnet-4-6
+temperature: 0
+language: auto
+
+ignore_paths:
+  - "tests/"
+  - "migrations/"
+  - "*.min.js"
+  - "*.lock"
+  - "dist/"
+  - "build/"
+
+severity_threshold: low       # low | medium | high | critical
+
+scoring:
+  critical_weight: 20
+  high_weight: 10
+  medium_weight: 3
+  low_weight: 1
+
+custom_rules_path: null        # ./docs/coding-standards.md
+baseline_path: ./.codereview-baseline.json
+
+output:
+  formats: [markdown]          # markdown | sarif
+  report_path: ./code-review-report.md
+
+concurrency:
+  max_workers: 5
+  rate_limit_rpm: 50
+
+retry:
+  max_attempts: 3
+  backoff_base: 2
+  backoff_max: 30
+
+desensitize: true              # 发送给 LLM 前脱敏
+max_file_size_kb: 512          # 单文件最大读取大小（KB），超出则跳过
